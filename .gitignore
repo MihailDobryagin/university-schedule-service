@@ -1,0 +1,9 @@
+.idea
+.gradle
+.kotlin
+build
+logs
+out
+.env
+*.iml
+*.db

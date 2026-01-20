@@ -1,0 +1,5 @@
+package domain.telegram
+
+import telegram.TelegramMessageHandler
+
+interface ClassesFromMenuRequestHandler : TelegramMessageHandler
