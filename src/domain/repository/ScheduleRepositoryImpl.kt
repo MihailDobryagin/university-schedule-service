@@ -120,8 +120,8 @@ class ScheduleRepositoryImpl(
   }
 
   private fun htmlToSchedule(html: String): Schedule? {
-    val table = Jsoup.parse(html).selectFirst("table.tablepress") ?: return null
-    val normalizedHtml = table.clearAttributes().outerHtml()
+    val tables = Jsoup.parse(html).select("table.tablepress").ifEmpty { null } ?: return null
+    val normalizedHtml = tables.joinToString(separator = "") { it.clearAttributes().outerHtml() }
     return scheduleHtmlConverter.fromHtml(normalizedHtml)
   }
 
