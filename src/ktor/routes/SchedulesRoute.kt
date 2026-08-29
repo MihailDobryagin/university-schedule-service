@@ -7,5 +7,11 @@ import org.koin.java.KoinJavaComponent.inject
 fun Route.schedules() {
   val controller by inject<ScheduleController>(ScheduleController::class.java)
 
-  get("/classes") { controller.classes(call) }
+  route("/classes") {
+    get { controller.classes(call) }
+
+    get("/by-period") { controller.classesByPeriod(call) }
+
+    get("/raw") { controller.raw(call) }
+  }
 }

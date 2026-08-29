@@ -11,4 +11,5 @@ interface ScheduleService {
   suspend fun htmlSchedule(): HtmlSchedule?
   suspend fun schedule(): Schedule?
   suspend fun scheduleForDate(date: LocalDate): List<Class>?
+  suspend fun scheduleByPeriod(from: LocalDate, to: LocalDate): Map<LocalDate, List<Class>>
 }

@@ -23,6 +23,7 @@ data class Schedule(
       CREDIT_WITH_ASSESSMENT,
       CREDIT_WITHOUT_ASSESSMENT,
       EXAM,
+      HEALTH_CHECK,
     }
 
     data class Period(

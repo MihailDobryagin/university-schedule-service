@@ -47,9 +47,11 @@ class ScheduleServiceImpl(
 
   override suspend fun schedule(): Schedule? = repository.actualSchedule()
 
-  override suspend fun scheduleForDate(date: LocalDate): List<Class>? {
-    return repository.actualSchedule()?.classesByDay?.get(date)
-  }
+  override suspend fun scheduleForDate(date: LocalDate): List<Class>? =
+    repository.actualSchedule()?.classesByDay?.get(date)
+
+  override suspend fun scheduleByPeriod(from: LocalDate, to: LocalDate): Map<LocalDate, List<Class>> =
+    repository.actualSchedule()?.classesByDay.orEmpty().filterKeys { date -> date in (from..to) }
 
   private fun notifyNoSchedule() {
     monitoringService.submitError("Расписание пропало")

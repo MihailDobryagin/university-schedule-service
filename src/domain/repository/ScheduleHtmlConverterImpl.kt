@@ -34,7 +34,7 @@ class ScheduleHtmlConverterImpl(
         val subject = row.selectFirst(".column-7")!!.text()
         val teacher = row.selectFirst(".column-9")!!.text()
         val classroom = row.selectFirst(".column-10")!!.text()
-        val date = LocalDate.of(if (month < 8) 2026 else 2025, month, day)
+        val date = LocalDate.of(if (month < 8) 2027 else 2026, month, day)
         val period = formattedPeriod.toPeriod()
 
         if (type == null) {
@@ -121,6 +121,7 @@ class ScheduleHtmlConverterImpl(
     "ЗО" -> CREDIT_WITH_ASSESSMENT
     "З" -> CREDIT_WITHOUT_ASSESSMENT
     "Э" -> EXAM
+    "М" -> HEALTH_CHECK
     "" -> null
     else -> throw IllegalStateException("No mapping for class-type")
   }
@@ -158,5 +159,6 @@ class ScheduleHtmlConverterImpl(
       CREDIT_WITH_ASSESSMENT -> "ЗО"
       CREDIT_WITHOUT_ASSESSMENT -> "З"
       EXAM -> "Э"
+      HEALTH_CHECK -> "М"
     }
 }

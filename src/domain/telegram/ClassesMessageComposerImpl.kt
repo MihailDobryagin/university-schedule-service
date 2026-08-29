@@ -60,5 +60,6 @@ class ClassesMessageComposerImpl : ClassesMessageComposer {
       CREDIT_WITH_ASSESSMENT -> "Зачёт с оценкой"
       CREDIT_WITHOUT_ASSESSMENT -> "Зачёт"
       EXAM -> "Экзамен"
+      HEALTH_CHECK -> "Медицинский осмотр"
     }
 }
